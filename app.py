@@ -54,6 +54,3 @@ def predict():
         result_text = 'The Person does not have Heart Disease' if prediction[0] == 0 else 'The Person has Heart Disease'
 
         return render_template('result.html', result=result_text)
-
-if __name__ == '__main__':
-    app.run(debug=True)
