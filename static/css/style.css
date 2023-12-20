@@ -1,0 +1,168 @@
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Default light theme background color */
+  color: #070000; /* Default light theme text color */
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+form {
+  display: grid;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #66afe9;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #0a0000;
+  color: #fff;
+}
+
+.dark-theme .container {
+  background-color: #333;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme label,
+.dark-theme input[type="text"] {
+  color: #ccc;
+  background-color: #333;
+  border-color: #555;
+}
+
+.dark-theme button[type="submit"] {
+  background-color: #0be02b;
+}
+
+/* Theme buttons styles */
+.theme-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.theme-buttons button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#light-theme-btn {
+  background-color: #fff;
+  color: #333;
+}
+
+#dark-theme-btn {
+  background-color: #000; /* Full black for the dark theme */
+  color: #fff;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #060000; /* Preferred header background color */
+}
+
+header h1 {
+  color: #ff0000; /* Red color for h1 */
+}
+
+/* Media queries */
+@media screen and (max-width: 720px) {
+  .container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  input[type="text"],
+  button[type="submit"] {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 721px) and (max-width: 1024px) {
+  .container {
+    max-width: 80%;
+    margin: 30px auto;
+    padding: 15px;
+  }
+
+  input[type="text"],
+  button[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+  }
+
+  input[type="text"],
+  button[type="submit"] {
+    padding: 12px;
+    font-size: 18px;
+  }
+}

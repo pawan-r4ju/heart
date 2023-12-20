@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease detection</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1 id="h1">Heart Disease Detection</h1>
+    </header>
+
+    <div class="container">
+        <div class="theme-buttons">
+            <button id="light-theme-btn">Light Theme</button>
+            <button id="dark-theme-btn">Dark Theme</button>
+        </div>
+        <form action="/predict" method="post">
+            <!-- Include input fields for each feature -->
+            <label for="age">Age:</label>
+            <input type="text" name="age" required>
+
+            <label for="sex">Sex: Male(1), Female(0)</label>
+            <input type="text" name="sex" required>
+
+            <label for="cp">Chest Pain Type:angina(0),pericarditis(1),myocarditis(2),cardiomyopathy(3)</label>
+            <input type="text" name="cp" placeholder="Enter Chest Pain Type" required>
+
+            <label for="trestbps">Resting Blood Pressure: if bp is greater then 120/80</label>
+            <input type="text" name="trestbps" placeholder="Enter Resting Blood Pressure" required>
+
+            <label for="chol">Cholesterol:</label>
+            <input type="text" name="chol" placeholder="Enter Cholesterol" required>
+
+            <label for="fbs">Fasting Blood Sugar: yes(1), no(0)</label>
+            <input type="text" name="fbs" placeholder="Enter Fasting Blood Sugar" required>
+
+            <label for="restecg">Resting ECG:12 lead yes(1), no(0)</label>
+            <input type="text" name="restecg" placeholder="Enter Resting ECG" required>
+
+            <label for="thalach">Max Heart Rate:age-220 is your MHR</label>
+            <input type="text" name="thalach" placeholder="Enter Max Heart Rate" required>
+
+            <label for="exang">Exercise Induced Angina: yes(1), no(0)</label>
+            <input type="text" name="exang" placeholder="Enter Exercise Induced Angina" required>
+
+            <label for="oldpeak">Oldpeak:</label>
+            <input type="text" name="oldpeak" placeholder="Enter Oldpeak" required>
+
+            <label for="slope">Slope:</label>
+            <input type="text" name="slope" placeholder="Enter Slope" required>
+
+            <label for="ca">Number of Major Vessels: inferior vena cave(0),superior vena cave(1),pulmonary arteries(2),pulmonary vains(3)</label>
+            <input type="text" name="ca" placeholder="Enter Number of Major Vessels" required>
+
+            <label for="thal">Thal: upsloping (1),flat(2),down sloping(3)</label>
+            <input type="text" name="thal" placeholder="Enter Thal" required>
+
+            <button type="submit">detect</button>
+        </form>
+    </div>
+
+    <script>
+        const body = document.body;
+
+function toggleDarkTheme() {
+    body.classList.toggle('dark-theme');
+    const isDarkTheme = body.classList.contains('dark-theme');
+    localStorage.setItem('isDarkTheme', isDarkTheme);
+}
+
+function loadPreferredTheme() {
+    const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'));
+    body.classList.toggle('dark-theme', isDarkTheme);
+}
+
+function setThemeListeners() {
+    const lightThemeBtn = document.getElementById('light-theme-btn');
+    const darkThemeBtn = document.getElementById('dark-theme-btn');
+
+    lightThemeBtn.addEventListener('click', () => {
+        body.classList.remove('dark-theme');
+        localStorage.setItem('isDarkTheme', false);
+    });
+
+    darkThemeBtn.addEventListener('click', toggleDarkTheme);
+}
+
+setThemeListeners();
+window.addEventListener('load', loadPreferredTheme);
+
+  
+    </script>
+</body>
+</html>
